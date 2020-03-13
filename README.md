@@ -4,9 +4,9 @@ By Irving Muller Rodrigues, Daniel Aloise, Eraldo Rezende Fernandes, and Michel 
 
 ## Introduction
 
-We propose Soft Alignment Model for Bug Deduplication (SABD). Our model can dynamically focus on distinct segments 
-of the bug reports during the generation of report representations. Our experimental results demonstrate that 
-our model outperforms state-of-the-art systems and strong baselines in different scenarios. 
+We propose a Soft Alignment Model for Bug Deduplication (SABD). 
+For a given pair of possibly duplicate reports, the attention mechanism computes interdependent representations for each report, which is more powerful than previous approaches
+Our experimental results demonstrate that SABD outperforms state-of-the-art systems and strong baselines in different scenarios. 
 
 ## Install
 
