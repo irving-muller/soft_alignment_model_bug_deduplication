@@ -1,0 +1,34 @@
+{
+    "bug_database": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/mozilla_soft_clean_rm_punc_sent_tok_stop_words_lower_case_rm_number_rm_char_stem.json",
+    "epochs": 6,
+    "lr": 0.001,
+    "batch_size": 128,
+    "ranking_batch_size": 2048,
+    "cuda": true,
+    "pairs_training": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/training_mozilla_pairs_random_1.txt",
+    "pairs_validation": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/validation_mozilla_pairs_random_1.txt",
+    "neg_pair_generator": {
+        "type": "none"
+    },
+    "dbr_cnn": {
+        "categorical_lexicon": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/categorical_lexicons.json",
+        "word_embedding": "HOME_DIR/embedding/glove_300d_mozilla_2001-2009_2010_soft_clean_stem_stem_rm_punc_rm_number.npy",
+        "lexicon": "HOME_DIR/embedding/glove_300d_mozilla_2001-2009_2010_soft_clean_stem_stem_rm_punc_rm_number.lxc",
+        "tokenizer": "white_space",
+        "filters": ["TransformLowerCaseFilter", "TransformNumberToZeroFilter"],
+        "window": [3, 4, 5],
+        "nfilters": 150
+    },
+    "optimizer": "adam",
+    "rr_val_epoch": 100,
+    "rr_train_epoch": 100,
+    "lr_scheduler": null,
+    "random_switch": false,
+    "recall_rate": {
+        "type": "sun2011",
+        "dataset": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/test_mozilla.txt",
+        "result_file": "HOME_DIR/scratch/ranking_results/dbrd_mozilla_test_1095.txt",
+        "group_by_master": true,
+        "window": 1095
+    }
+}

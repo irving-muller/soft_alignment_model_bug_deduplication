@@ -1,0 +1,74 @@
+{
+    "bug_database": "HOME_DIR/dataset/sun_2011/eclipse_80_20/eclipse_clear_v2_soft_clean_rm_punc_sent_tok.json",
+    "epochs": 30,
+    "lr": 0.001,
+    "batch_size" : 128,
+    "cuda" : true,
+    "cache_folder": "HOME_DIR/scratch/temp/",
+    "triplets_training": "HOME_DIR/dataset/sun_2011/eclipse_80_20/training_split_eclipse_triplets_random_1.txt",
+    "triplets_validation": "HOME_DIR/dataset/sun_2011/eclipse_80_20/validation_eclipse_triplets_random_1.txt",
+    "neg_pair_generator": {
+        "type": "non_negative",
+        "training": "HOME_DIR/dataset/sun_2011/eclipse_80_20/training_split_eclipse.txt",
+        "n_tries": 10,
+        "rate": 1
+    },
+    "sum_desc":null,
+    "summary":
+        {
+            "word_embedding": "HOME_DIR/embedding/glove_42b_300d_eclipse_80_20_soft_clean_merged.txt",
+            "tokenizer": "white_space",
+            "filters": ["TransformLowerCaseFilter"],
+            "hidden_size": 100,
+            "encoder_type": "rnn",
+            "rnn_type": "lstm",
+            "update_embedding": false,
+            "dropout": 0.0,
+            "bidirectional": true,
+            "fixed_opt": "mean",
+            "bn_last_layer": false
+        },
+    "description":{
+        "word_embedding": "HOME_DIR/embedding/glove_42b_300d_eclipse_80_20_soft_clean_merged.txt",
+        "encoder_type": "cnn",
+        "tokenizer": "white_space",
+        "filters": ["TransformLowerCaseFilter"],
+        "nfilters": 50,
+        "activation": "tanh",
+        "batch_normalization": false,
+        "dropout": 0.0,
+        "window_sizes": [3,4,5],
+        "update_embedding": false,
+        "bn_last_layer": false
+    },
+    "categorical":{
+        "lexicons": "HOME_DIR/dataset/sun_2011/eclipse_80_20/categorical_lexicons.json",
+        "bn_last_layer": true,
+        "emb_size": 20,
+        "hidden_sizes": [40],
+        "dropout": 0.0,
+        "activation": "tanh",
+        "batch_normalization": false,
+        "bn_last_layer": false
+    },
+    "scorer":{
+        "type": "cosine",
+        "margin": null,
+        "dropout": 0
+    },
+    "recall_estimation_train":"HOME_DIR/dataset/sun_2011/eclipse_80_20/training_recall_random_date_sample_200_10000.pkl",
+    "recall_estimation":"HOME_DIR/dataset/sun_2011/eclipse_80_20/validation_recall_random_date_sample_200_10000.pkl",
+    "optimizer": "adam",
+    "rr_val_epoch": 5,
+    "rr_train_epoch": 5,
+    "lr_scheduler": null,
+    "recall_rate": {
+        "type": "sun2011",
+        "dataset": "HOME_DIR/dataset/sun_2011/eclipse_80_20/validation_eclipse.txt",
+        "result_file": "HOME_DIR/ranking_results/siamese_pairs_deshmukh.txt",
+        "only_master": false,
+        "window": 365
+    }
+
+    
+}
