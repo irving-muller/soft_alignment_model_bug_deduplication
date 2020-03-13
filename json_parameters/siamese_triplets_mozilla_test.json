@@ -1,0 +1,65 @@
+{
+    "bug_database": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/mozilla_soft_clean_rm_punc_sent_tok.txt.json",
+    "epochs": 8,
+    "lr": 0.001,
+    "batch_size" : 128,
+    "cuda" : true,
+    "cache_folder": "HOME_DIR/scratch/temp/",
+    "triplets_training": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/training_mozilla_triplets_random_1.txt",
+    "triplets_validation": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/validation_mozilla_triplets_random_1.txt",
+    "neg_pair_generator": {
+        "type": "non_negative",
+        "training": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/training_mozilla.txt",
+        "n_tries": 25,
+        "rate": 1,
+        "decimals": 15
+    },
+    "sum_desc":null,
+    "summary":
+        {
+            "word_embedding": "HOME_DIR/embedding/glove_42B_300d_mozilla_2001-2009_2010_soft_clean_merged.txt",
+            "tokenizer": "white_space",
+            "filters": ["TransformLowerCaseFilter"],
+            "hidden_size": 300,
+            "encoder_type": "rnn",
+            "rnn_type": "lstm",
+            "update_embedding": false,
+            "dropout": 0.0,
+            "bidirectional": true,
+            "fixed_opt": "mean+max"
+        },
+    "description":{
+        "word_embedding": "HOME_DIR/embedding/glove_42B_300d_mozilla_2001-2009_2010_soft_clean_merged.txt",
+        "tokenizer": "white_space",
+        "filters": ["TransformLowerCaseFilter"],
+        "hidden_size": 300,
+        "encoder_type": "rnn",
+        "rnn_type": "lstm",
+        "update_embedding": false,
+        "dropout": 0.0,
+        "bidirectional": true,
+        "fixed_opt": "mean+max"
+    },
+    "categorical":{
+        "lexicons": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/categorical_lexicons.json",
+        "emb_size": 20,
+        "hidden_sizes": [40],
+        "dropout": 0.0,
+        "activation": "relu"
+    },
+    "scorer":{
+        "type": "cosine",
+        "margin": 0.05,
+        "dropout": 0.0
+    },
+    "optimizer": "adam",
+    "lr_scheduler": null,
+    "recall_rate": {
+        "type": "sun2011",
+        "dataset": "HOME_DIR/dataset/sun_2011/mozilla_2001-2009_2010/test_mozilla.txt",
+        "result_file": "HOME_DIR/ranking_results/simese_triplets_mozilla_test.txt",
+        "group_by_master": true,
+        "window": 1095
+    }
+}
+

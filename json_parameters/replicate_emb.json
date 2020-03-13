@@ -1,0 +1,41 @@
+{
+    "bug_database": "HOME_DIR/dataset/sun_2011/eclipse_2009_v2/eclipse_clear_v2_soft_clean.json",
+    "epochs": 50,
+    "lr": 0.001,
+    "batch_size" : 32,
+    "cuda" : true,
+    "cache_folder": "HOME_DIR/dataset/temp",
+    "pairs_training": "HOME_DIR/dataset/sun_2011/eclipse_2009_v2/training_split_eclipse_pairs_random_1.txt",
+    "pairs_validation": "HOME_DIR/dataset/sun_2011/eclipse_2009_v2/validation_eclipse_pairs_random_1.txt",
+    "sum_desc":
+        {
+            "word_embedding": "HOME_DIR/embedding/sum_desc_eclipse_2009_soft_min_5_size_200.txt",
+            "tokenizer": "white_space",
+            "filters": ["TransformLowerCaseFilter", "TransformNumberToZeroFilter"],
+            "update_embedding": true,
+            "encoder_type": "replicated_emb",
+            "type": "gru",
+            "hidden_size": 100,
+            "num_layers": 1,
+            "bidirectional": false,
+            "attention": "general",
+            "dropout": 0.0,
+            "fixed_size_method": "mean"
+        },
+    "classifier": {
+        "batch_normalization": false,
+        "hidden_sizes": [100],
+        "margin": 0,
+        "loss": "bce"
+    },
+    "recall_estimation_train":"HOME_DIR/dataset/sun_2011/eclipse_2009_v2/sample_24000_eclipse_recall_5000.pkl",
+    "recall_estimation":"HOME_DIR/dataset/sun_2011/eclipse_2009_v2/validation_eclipse_recall_20000.pkl",
+    "sample_size_rr_val": 400,
+    "sample_size_rr_tr": 2000,
+    "optimizer": "sgd",
+    "lr_scheduler": {
+        "type": "linear",
+        "decay": 0.5
+    }
+}
+
