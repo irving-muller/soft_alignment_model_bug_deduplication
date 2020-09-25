@@ -34,36 +34,16 @@ The original dataset is available [here](http://alazar.people.ysu.edu/msr14data/
 > Note: Lazar's dataset has to be dumped into mongo before running these commands
     
     # Mozilla
-    python data/create_dataset_our_methodology --database mozilla --collection mozall 
-    --bug_data  DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json 
-    --training  DATASET_DIR/mozilla_2001-2009_2010/training_split_mozilla.txt  
-    --validation  DATASET_DIR/mozilla_2001-2009_2010/validation_mozilla.txt  
-    --test   DATASET_DIR/mozilla_2001-2009_2010/test_mozilla.txt 
-    --date="2010/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database mozilla --collection mozall --bug_data  DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json --training  DATASET_DIR/mozilla_2001-2009_2010/training_split_mozilla.txt --validation  DATASET_DIR/mozilla_2001-2009_2010/validation_mozilla.txt --test   DATASET_DIR/mozilla_2001-2009_2010/test_mozilla.txt --date="2010/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
        
     #Eclipse
-    python data/create_dataset_our_methodology --database eclipse --collection initial 
-    --bug_data  DATASET_DIR/eclipse_2001-2007_2008/eclipse_initial.json 
-    --training  DATASET_DIR/eclipse_2001-2007_2008/training_split_eclipse.txt  
-    --validation  DATASET_DIR/eclipse_2001-2007_2008/validation_eclipse.txt  
-    --test   DATASET_DIR/eclipse_2001-2007_2008/test_eclipse.txt 
-    --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database eclipse --collection initial --bug_data  DATASET_DIR/eclipse_2001-2007_2008/eclipse_initial.json --training  DATASET_DIR/eclipse_2001-2007_2008/training_split_eclipse.txt --validation  DATASET_DIR/eclipse_2001-2007_2008/validation_eclipse.txt --test   DATASET_DIR/eclipse_2001-2007_2008/test_eclipse.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
     
     #Netbeans
-    python data/create_dataset_our_methodology --database netBeans --collection initial 
-    --bug_data  DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json 
-    --training  DATASET_DIR/netbeans_2001-2007_2008/training_split_netbeans.txt  
-    --validation  DATASET_DIR/netbeans_2001-2007_2008/validation_netbeans.txt  
-    --test   DATASET_DIR/netbeans_2001-2007_2008/test_netbeans.txt 
-    --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database netBeans --collection initial --bug_data  DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json --training  DATASET_DIR/netbeans_2001-2007_2008/training_split_netbeans.txt --validation  DATASET_DIR/netbeans_2001-2007_2008/validation_netbeans.txt --test   DATASET_DIR/netbeans_2001-2007_2008/test_netbeans.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
     
     #OpenOffice
-    python data/create_dataset_our_methodology --database openOffice --collection initial 
-    --bug_data  DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json 
-    --training  DATASET_DIR/open_office_2001-2008_2010/training_split_open_office.txt  
-    --validation  DATASET_DIR/open_office_2001-2008_2010/validation_open_office.txt  
-    --test   DATASET_DIR/open_office_2001-2008_2010/test_open_office.txt 
-    --date="2008/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database openOffice --collection initial --bug_data  DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json --training  DATASET_DIR/open_office_2001-2008_2010/training_split_open_office.txt --validation  DATASET_DIR/open_office_2001-2008_2010/validation_open_office.txt --test   DATASET_DIR/open_office_2001-2008_2010/test_open_office.txt --date="2008/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
  
 *An example to how preprocess report data is shown below:*
     
