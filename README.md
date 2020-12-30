@@ -20,7 +20,7 @@ Install the following packages:
     conda install -c anaconda nltk
     conda install -c anaconda scipy
     conda install -c anaconda ujson
-    conda install ignite -c pytorch
+    conda install -c pytorch ignite=0.1.2
     pip install sacred 
     
 ## Data
