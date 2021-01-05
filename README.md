@@ -11,6 +11,7 @@ Our experimental results demonstrate that SABD outperforms state-of-the-art syst
 ## Install
 
 Install the following packages:
+
 ```bash
 # CPU
 conda install pytorch torchvision cpuonly -c pytorch 
@@ -22,7 +23,8 @@ conda install -c anaconda scipy
 conda install -c anaconda ujson
 conda install -c pytorch ignite=0.1.2
 pip install sacred 
-``` 
+```
+
 ## Data
 
 The data used in the paper can be found [here](https://zenodo.org/record/3922012). One folder contain the word embeddings and four remaining ones 
