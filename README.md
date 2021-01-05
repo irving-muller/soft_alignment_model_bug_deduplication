@@ -11,18 +11,18 @@ Our experimental results demonstrate that SABD outperforms state-of-the-art syst
 ## Install
 
 Install the following packages:
-    
+```bash
     # CPU
     conda install pytorch torchvision cpuonly -c pytorch 
-    #GPU
+    # GPU
     conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
     
     conda install -c anaconda nltk
     conda install -c anaconda scipy
     conda install -c anaconda ujson
-    conda install ignite -c pytorch
+    conda install -c pytorch ignite=0.1.2
     pip install sacred 
-    
+``` 
 ## Data
 
 The data used in the paper can be found [here](https://zenodo.org/record/3922012). One folder contain the word embeddings and four remaining ones 
@@ -32,36 +32,34 @@ The original dataset is available [here](http://alazar.people.ysu.edu/msr14data/
 
 *The commands below generates the dataset of each open-sources projects:*
 > Note: Lazar's dataset has to be dumped into mongo before running these commands
-    
+
+```bash 
     # Mozilla
-    python data/create_dataset_our_methodology.py --database mozilla --collection mozall --bug_data  DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json --training  DATASET_DIR/mozilla_2001-2009_2010/training_split_mozilla.txt --validation  DATASET_DIR/mozilla_2001-2009_2010/validation_mozilla.txt --test   DATASET_DIR/mozilla_2001-2009_2010/test_mozilla.txt --date="2010/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database mozilla --collection mozall --bug_data DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json --training DATASET_DIR/mozilla_2001-2009_2010/training_split_mozilla.txt --validation  DATASET_DIR/mozilla_2001-2009_2010/validation_mozilla.txt --test DATASET_DIR/mozilla_2001-2009_2010/test_mozilla.txt --date="2010/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
        
     #Eclipse
-    python data/create_dataset_our_methodology.py --database eclipse --collection initial --bug_data  DATASET_DIR/eclipse_2001-2007_2008/eclipse_initial.json --training  DATASET_DIR/eclipse_2001-2007_2008/training_split_eclipse.txt --validation  DATASET_DIR/eclipse_2001-2007_2008/validation_eclipse.txt --test   DATASET_DIR/eclipse_2001-2007_2008/test_eclipse.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database eclipse --collection initial --bug_data DATASET_DIR/eclipse_2001-2007_2008/eclipse_initial.json --training  DATASET_DIR/eclipse_2001-2007_2008/training_split_eclipse.txt --validation  DATASET_DIR/eclipse_2001-2007_2008/validation_eclipse.txt --test DATASET_DIR/eclipse_2001-2007_2008/test_eclipse.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
     
     #Netbeans
-    python data/create_dataset_our_methodology.py --database netBeans --collection initial --bug_data  DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json --training  DATASET_DIR/netbeans_2001-2007_2008/training_split_netbeans.txt --validation  DATASET_DIR/netbeans_2001-2007_2008/validation_netbeans.txt --test   DATASET_DIR/netbeans_2001-2007_2008/test_netbeans.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database netBeans --collection initial --bug_data DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json --training  DATASET_DIR/netbeans_2001-2007_2008/training_split_netbeans.txt --validation  DATASET_DIR/netbeans_2001-2007_2008/validation_netbeans.txt --test DATASET_DIR/netbeans_2001-2007_2008/test_netbeans.txt --date="2008/01/01" --date_threshold="2008/12/31" --no_tree --dev_perc=0.05
     
     #OpenOffice
-    python data/create_dataset_our_methodology.py --database openOffice --collection initial --bug_data  DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json --training  DATASET_DIR/open_office_2001-2008_2010/training_split_open_office.txt --validation  DATASET_DIR/open_office_2001-2008_2010/validation_open_office.txt --test   DATASET_DIR/open_office_2001-2008_2010/test_open_office.txt --date="2008/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
+    python data/create_dataset_our_methodology.py --database openOffice --collection initial --bug_data DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json --training  DATASET_DIR/open_office_2001-2008_2010/training_split_open_office.txt --validation  DATASET_DIR/open_office_2001-2008_2010/validation_open_office.txt --test DATASET_DIR/open_office_2001-2008_2010/test_open_office.txt --date="2008/01/01" --date_threshold="2010/12/31" --no_tree --dev_perc=0.05
+```
  
 *An example to how preprocess report data is shown below:*
     
-    python data/clean_data.py --bug_dataset DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json  
-    --output  DATASET_DIR/netbeans_2001-2007_2008/netbeans_soft_clean_rm_punc_sent_tok.txt.json 
-    --fields short_desc description --type soft --rm_punc --sent_tok --lower_case
+    python data/clean_data.py --bug_dataset DATASET_DIR/netbeans_2001-2007_2008/netbeans_initial.json --output DATASET_DIR/netbeans_2001-2007_2008/netbeans_soft_clean_rm_punc_sent_tok.txt.json --fields short_desc description --type soft --rm_punc --sent_tok --lower_case
     
 *An example to generate pairs and triplets for training is shown below:*
     
-    python data/create_dataset_our_methodology.py --bug_data DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json 
-    --dataset DATASET_DIR/open_office_2001-2008_2010/training_open_office.txt  --n 1 --type random
+    python data/create_dataset_our_methodology.py --bug_data DATASET_DIR/open_office_2001-2008_2010/open_office_initial.json --dataset DATASET_DIR/open_office_2001-2008_2010/training_open_office.txt --n 1 --type random
     
 
 *An example to generate categorical lexicon is shown below:*
 
     python data/generate_categorical_lexicon.py 
-        --bug_data DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json 
-        -o DATASET_DIR/dataset/sun_2011/mozilla_2001-2009_2010/categorical_lexicons.json
+        --bug_data DATASET_DIR/mozilla_2001-2009_2010/mozilla_initial.json -o DATASET_DIR/dataset/sun_2011/mozilla_2001-2009_2010/categorical_lexicons.json
         
 In order to compare SABD with REP and BM25F_ext, we had to modify a little bit the original code of REP and BM25F_ext.
 The modified source code can be found [here](https://github.com/irving-muller/fast-dbrd-modified).       
@@ -74,12 +72,13 @@ In order to train SABD, a json have to be created with the argument values of SA
 Some json samples are shown in the folder "json_experiments".
 
 Run python script experiments/sabd.py to perform the experiments.
+
 ```
 #Examples
-python3 experiments/sabd.py  -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_eclipse_test.json recall_rate.window=365"
-python3 experiments/sabd.py  -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_open_office_test.json   "recall_rate.window=365"
-python3 experiments/sabd.py  -F HOME_DIR/experiments  with HOME_DIR/duplicate-bug-report/json_parameters/sabd_netbeans_test.json "recall_rate.window=365"
-python3 experiments/sabd.py  -F HOME_DIR/experiments  with HOME_DIR/duplicate-bug-report/json_parameters/sabd_mozilla_test.json  "recall_rate.window=365"
+python3 experiments/sabd.py -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_eclipse_test.json "recall_rate.window=365"
+python3 experiments/sabd.py -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_open_office_test.json "recall_rate.window=365"
+python3 experiments/sabd.py -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_netbeans_test.json "recall_rate.window=365"
+python3 experiments/sabd.py -F HOME_DIR/experiments with HOME_DIR/duplicate-bug-report/json_parameters/sabd_mozilla_test.json "recall_rate.window=365"
 ```
 
 
