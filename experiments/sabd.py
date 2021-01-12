@@ -19,7 +19,6 @@ from torch.utils.data import DataLoader
 
 import sys
 sys.path.append('./')
-os.makedirs('./ranking_results', exist_ok = true)
 
 from data.Embedding import Embedding
 from data.Lexicon import Lexicon
