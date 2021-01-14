@@ -17,6 +17,9 @@ from torch.nn import NLLLoss, BCELoss
 from torch.optim.lr_scheduler import StepLR, ExponentialLR, LambdaLR
 from torch.utils.data import DataLoader
 
+import sys
+sys.path.append('./')
+
 from data.Embedding import Embedding
 from data.Lexicon import Lexicon
 from data.bug_dataset import BugDataset
