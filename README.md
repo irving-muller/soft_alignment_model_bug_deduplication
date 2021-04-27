@@ -2,7 +2,7 @@
 
 By Irving Muller Rodrigues, Daniel Aloise, Eraldo Rezende Fernandes, and Michel Dagenais
 
-[Pre-print](https://irving-muller.github.io/papers/MSR2020.pdf)
+[Preprint](https://irving-muller.github.io/papers/MSR2020.pdf)
 
 ## Introduction
 
