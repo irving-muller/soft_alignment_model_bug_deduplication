@@ -103,14 +103,16 @@ If the code helps your research, please consider to cite our work:
     https://doi.org/10.1145/3379597.3387470
     
     @INPROCEEDINGS {rodrigues2020,
-        author    = "Irving Muller Rodrigues, Daniel Aloise, Eraldo Rezende Fernandes, and Michel Dagenais",
-        title     = "A Soft Alignment Model for Bug Deduplication",
-        booktitle = "17th International Conference on Mining Software Repositories (MSR ’20)",
-        year      = "2020",
-        address   = "Seoul, Republic of Korea",
-        month     = "oct",
-        publisher = "ACM"
-        note      = "forthcoming"
+        author = {Rodrigues, Irving Muller and Aloise, Daniel and Fernandes, Eraldo Rezende and Dagenais, Michel},
+        title = {A Soft Alignment Model for Bug Deduplication},
+        year = {2020},
+        isbn = {9781450375177},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3379597.3387470},
+        booktitle = {Proceedings of the 17th International Conference on Mining Software Repositories},
+        pages = {43–53},
+        numpages = {11}
     }
 
 # License
